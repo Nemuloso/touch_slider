@@ -1,0 +1,20 @@
+{
+  "name": "touch_slider",
+  "version": "1.0.0",
+  "description": "Slider html component for Lisi and Marc",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "html",
+    "javascript",
+    "node",
+    "express"
+  ],
+  "author": "Stefan Hermes",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

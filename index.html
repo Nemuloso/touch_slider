@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="basic.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <script>
+        jQuery(document).ready(function ($) {
+
+            $('#checkbox').change(function () {
+                setInterval(function () {
+                    moveRight();
+                }, 3000);
+            });
+
+            var slideCount = $('#slider ul li').length;
+            var slideWidth = $('#slider ul li').width();
+            var slideHeight = $('#slider ul li').height();
+            var sliderUlWidth = slideCount * slideWidth;
+
+            $('#slider').css({ width: slideWidth, height: slideHeight });
+
+            $('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+
+            $('#slider ul li:last-child').prependTo('#slider ul');
+
+            function moveLeft() {
+                $('#slider ul').animate({
+                    left: + slideWidth
+                }, 200, function () {
+                    $('#slider ul li:last-child').prependTo('#slider ul');
+                    $('#slider ul').css('left', '');
+                });
+            };
+
+            function moveRight() {
+                $('#slider ul').animate({
+                    left: - slideWidth
+                }, 200, function () {
+                    $('#slider ul li:first-child').appendTo('#slider ul');
+                    $('#slider ul').css('left', '');
+                });
+            };
+
+            $('a.control_prev').click(function () {
+                moveLeft();
+            });
+
+            $('a.control_next').click(function () {
+                moveRight();
+            });
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <h1>Incredibly Basic Slider</h1>
+    <div id="slider">
+        <a href="#" class="control_next">>></a>
+        <a href="#" class="control_prev">
+            <</a> <ul>
+                <li style="background-image: url(closed.jpg)"></li>
+                <li style="background-image: url(open.jpg)"></li>
+                <li style="background-image: url(closed.jpg)"></li>
+                <li style="background-image: url(open.jpg)"></li>
+                </ul>
+    </div>
+</body>
+
+</html>
