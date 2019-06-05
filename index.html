@@ -2,7 +2,10 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
     <script>
         jQuery(document).ready(function ($) {
@@ -50,12 +53,19 @@
                 moveRight();
             });
 
+            $("#slider ul").on("swipeleft", function () {
+                moveLeft();
+            });
+
+            $("#slider ul").on("swiperight", function () {
+                moveRight();
+            });
+
         });
     </script>
 </head>
 
 <body>
-    <h1>Incredibly Basic Slider</h1>
     <div id="slider">
         <a href="#" class="control_next">>></a>
         <a href="#" class="control_prev">
